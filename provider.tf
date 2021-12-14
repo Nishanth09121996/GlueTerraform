@@ -4,3 +4,12 @@ provider "aws" {
   region     = var.aws_region
 
 }
+terraform {
+    backend "s3" {
+      encrypt = true
+      bucket = "terraform-glue-bucket"
+      
+      key = "terraformbackend/terraform.tfstate"
+      region = "us-east-1"
+  }
+}
